@@ -33,4 +33,13 @@ public abstract class Person {
     }
 
     public abstract void setSalary(double salary);
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }

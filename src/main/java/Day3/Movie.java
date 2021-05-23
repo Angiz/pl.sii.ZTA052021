@@ -7,14 +7,12 @@ public class Movie {
 
     public String title;
     public LocalDate dateOfPremiere;
-    public List<Actor> listOfActors;
-    public Director director;
+    public List<Person> listOfStaff;
 
-    public Movie(String title, LocalDate dateOfPremiere, List<Actor> listOfActors, Director director) {
+    public Movie(String title, LocalDate dateOfPremiere, List<Person> listOfStaff) {
         this.title = title;
         this.dateOfPremiere = dateOfPremiere;
-        this.listOfActors = listOfActors;
-        this.director = director;
+        this.listOfStaff = listOfStaff;
     }
 
     public String getTitle() {
@@ -33,19 +31,22 @@ public class Movie {
         this.dateOfPremiere = dateOfPremiere;
     }
 
-    public List<Actor> getListOfActors() {
-        return listOfActors;
+    public List<Person> getListOfStaff() {
+        return listOfStaff;
     }
 
-    public void setListOfActors(List<Actor> listOfActors) {
-        this.listOfActors = listOfActors;
+    public void setListOfStaff(List<Person> listOfStaff) {
+        this.listOfStaff = listOfStaff;
     }
 
-    public Director getDirector() {
-        return director;
-    }
 
-    public void setDirector(Director director) {
-        this.director = director;
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", dateOfPremiere=" + dateOfPremiere +
+                ", listOfActors=" + listOfStaff +
+                '}';
     }
 }
