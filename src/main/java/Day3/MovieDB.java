@@ -1,8 +1,5 @@
 package Day3;
 
-import net.bytebuddy.asm.Advice;
-
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -98,14 +95,41 @@ public class MovieDB {
 
     public static void addMovie() {
         movieData();
+        List<Person> listOfStaff = new ArrayList<>();
+
         System.out.println("Add movie");
         Scanner scanner1 = new Scanner(System.in);
         System.out.print("Title: ");
         String title = scanner1.nextLine();
         System.out.print("Date of Premiere: ");
         LocalDate dateOfPremiere = LocalDate.parse(scanner1.nextLine(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        //movieLibrary.add(new Movie(title, dateOfPremiere, Arrays.asList()))
-    }
+        System.out.print("Number of actors playing in the movie: ");
+        int actorsNum = scanner1.nextInt();
+        System.out.println("Adding actors...\n");
+        scanner1.nextLine();
+        for (int i=0; i<actorsNum; i++) {
+            System.out.print("Name: ");
+            String name = scanner1.nextLine();
+            System.out.print("Surname: ");
+            String surname = scanner1.nextLine();
+            System.out.print("Salary: ");
+            int salary = scanner1.nextInt();
+            System.out.println("Actor with id "+(i+1)+" added\n");
+            scanner1.nextLine();
+            listOfStaff.add(new Actor(name, surname, salary));
+            }
+        System.out.print("Director's name: ");
+        String dirName = scanner1.nextLine();
+        System.out.print("Director's surname: ");
+        String dirSurname = scanner1.nextLine();
+        System.out.print("Director's salary:");
+        double dirSalary = scanner1.nextInt();
+        listOfStaff.add(new Director(dirName, dirSurname, dirSalary));
+        movieLibrary.add(new Movie(title, dateOfPremiere, listOfStaff));
+        System.out.println(movieLibrary);
+        }
+
+
 
     public static void searchByActor() {
         System.out.println("Provide actor's name or surname");
