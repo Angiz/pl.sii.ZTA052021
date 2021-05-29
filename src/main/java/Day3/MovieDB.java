@@ -101,7 +101,7 @@ public class MovieDB {
         Scanner scanner1 = new Scanner(System.in);
         System.out.print("Title: ");
         String title = scanner1.nextLine();
-        System.out.print("Date of Premiere: ");
+        System.out.print("Date of Premiere in format YYYY-MM-DD: ");
         LocalDate dateOfPremiere = LocalDate.parse(scanner1.nextLine(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         System.out.print("Number of actors playing in the movie: ");
         int actorsNum = scanner1.nextInt();

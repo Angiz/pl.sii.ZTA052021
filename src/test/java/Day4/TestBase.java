@@ -30,10 +30,10 @@ public class TestBase {
 
     }
 
-    @AfterMethod
-    public void tearDown() {
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void tearDown() {
+//        driver.quit();
+//    }
 
     public WebElement getRandomElement (List<WebElement> elements) {
         Random rnd = new Random();
