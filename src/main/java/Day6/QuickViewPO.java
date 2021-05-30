@@ -13,7 +13,7 @@ public class QuickViewPO extends BasePO {
         super(driver);
     }
 
-    @FindBy (id = "quantity_wanted")
+    @FindBy (name = "qty")
     private WebElement inputQuantity;
 
     @FindBy (css = ".add-to-cart")
@@ -21,6 +21,9 @@ public class QuickViewPO extends BasePO {
 
     @FindBy (css = ".btn-secondary")
     private WebElement continueShoppingBtn;
+
+    @FindBy (css = ".cart-content-btn a")
+    private WebElement goToCardBtn;
 
     @FindBy (css = "#blockcart-modal")
     private WebElement blockingModel;
@@ -32,7 +35,7 @@ public class QuickViewPO extends BasePO {
 
     public void addToCard() {
         addToBasketBtn.click();
-        wait.until(ExpectedConditions.elementToBeClickable(continueShoppingBtn));
+        wait.until(ExpectedConditions.elementToBeClickable(goToCardBtn));
         continueShoppingBtn.click();
         wait.until(ExpectedConditions.invisibilityOf(blockingModel));
     }

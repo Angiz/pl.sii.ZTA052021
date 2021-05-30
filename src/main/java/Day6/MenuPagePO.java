@@ -31,4 +31,6 @@ public class MenuPagePO extends BasePO {
     public void openBasket() {
         basketBtn.click();
     }
+
+    //https://github.com/Angiz/pl.sii.ZTA052021/tree/master/src
 }

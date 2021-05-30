@@ -11,8 +11,12 @@ import java.util.List;
 
 public class HomePagePO extends BasePO {
 
-    @FindBy(css = ".product-thumbnail")
+    @FindBy(css = ".product-miniature")
     private List<WebElement> products;
+
+
+    @FindBy (css = ".add-to-cart")
+    private WebElement addToBasketBtn;
 
     public HomePagePO(WebDriver driver) {
         super(driver);
@@ -35,6 +39,20 @@ public class HomePagePO extends BasePO {
         }
         return productMinaturesList;
     }
+
+    public void openQuickViewOfSelectedMiniature (int n) {
+        getProductMinatures().get(n).clickQuickView();
+        wait.until(ExpectedConditions.elementToBeClickable(addToBasketBtn));
+    }
+
+    public double getPriceOfSelectedMiniature (int n) {
+        return getProductMinatures().get(n).getPrice();
+    }
+
+    public int getMiniaturesNumber () {
+        return getProductMinatures().size();
+    }
+
 
 
 }

@@ -40,4 +40,10 @@ public class TestBase {
         int randomNumber = rnd.nextInt(elements.size());
         return elements.get(randomNumber);
     }
+
+    public int getRandomNumber (int max) {
+        Random r = new Random();
+        int randomNumber = r.nextInt(max);
+        return randomNumber;
+    }
 }

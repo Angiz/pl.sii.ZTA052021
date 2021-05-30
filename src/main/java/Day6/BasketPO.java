@@ -18,10 +18,10 @@ public class BasketPO extends BasePO {
     }
 
     public int getNumberOfTotalItems () {
-        return Integer.parseInt(numberOfTotalItems.getText());
+        return Integer.parseInt(numberOfTotalItems.getText().replace(" sztuk", ""));
     }
 
     public double getSubtotalPrice() {
-        return Double.parseDouble(subtotalPrice.getText());
+        return Double.parseDouble(subtotalPrice.getText().replace(" zł", "").replace(",", "."));
     }
 }

@@ -32,8 +32,8 @@ public class ProductMinaturePO {
         this.driver = driver;
     }
 
-    public double returnPrice() {
-        return Double.parseDouble(price.getText());
+    public double getPrice() {
+        return Double.parseDouble(price.getText().replace(" zł", "").replace(",", "."));
     }
 
     public void clickQuickView() {
