@@ -21,7 +21,9 @@ pipeline {
         }
         stage('Build') {
             when {
-                not changelog "^\\[ci skip]*\$"
+                not {
+                    changelog "^\\[ci skip]*\$"
+                }
             }
             steps {
                 // Run Maven on a Unix agent.
