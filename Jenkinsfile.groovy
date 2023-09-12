@@ -20,13 +20,14 @@ pipeline {
             }
         }
         stage('Build') {
-            when {
-                not {
-                    changelog '.*^\\[ci skip\\] .+$'
-                }
-            }
+            //when {
+            //    not {
+            //        changelog '.*^\\[ci skip\\] .+$'
+            //    }
+            //}
             steps {
                 // Run Maven on a Unix agent.
+                scmSkip(deleteBuild: true, skipPattern:'.*\\[ci skip\\].*')
                 sh "mvn -Dmaven.test.failure.ignore=true clean verify"
 
                 // To run Maven on a Windows agent, use
