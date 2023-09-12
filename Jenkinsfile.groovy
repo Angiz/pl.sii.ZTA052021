@@ -20,6 +20,9 @@ pipeline {
             }
         }
         stage('Build') {
+            when {
+                changelog not "^\\[ci skip]*\$"
+            }
             steps {
                 // Run Maven on a Unix agent.
                 sh "mvn -Dmaven.test.failure.ignore=true clean verify"
